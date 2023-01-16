@@ -1,4 +1,5 @@
 import BookCollection from './modules/bookCollection.js';
+import { DateTime } from './modules/luxon.js';
 
 const bookCollection = new BookCollection();
 bookCollection.displayBooks();
@@ -44,3 +45,11 @@ btnContactSection.addEventListener('click', () => {
   addSection.style.display = 'none';
   contactSection.style.display = 'block';
 });
+
+// Date & Time Display
+
+const localTime = DateTime.local();
+const timeNow = localTime.toFormat('MMMM dd yyyy, hh:mm:ss a');
+
+const dateText = document.getElementById('date');
+dateText.textContent = timeNow;
